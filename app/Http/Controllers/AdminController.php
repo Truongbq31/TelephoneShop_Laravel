@@ -42,5 +42,32 @@ class AdminController extends Controller
         }
         return view('admin.products.add', compact('category'));
     }
+
+    public function editProduct(AllRequest $request, $id){
+        $category = DB::table('categories')->get();
+        $product = DB::table('products')
+            ->join('categories','products.category_id','=','categories.id')
+            ->select('products.*', 'categories.name as cate_name')
+            ->where('products.id', '=', $id)
+            ->first();
+//        dd($product);
+
+//        $products = Products::find($id);
+//        dd($products);
+
+        if ($request->isMethod('POST')){
+            $params =$request->except('_token');
+            if ($request->hasFile('image') && $request->file('image')->isValid()){
+                $params['image'] = uploadFile('images', $request->file('image'));
+            }
+            $result = Products::where('id', $id)
+                ->update($params);
+            if ($result){
+                Session::flash('success', "Success!");
+                return redirect()->route('route_admin_editProduct',['id'=>$id]);
+            }
+        }
+        return view("admin.products.edit", compact('category', 'product'));
+    }
     //
 }

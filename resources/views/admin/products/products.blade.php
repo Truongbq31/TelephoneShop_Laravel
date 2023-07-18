@@ -58,7 +58,7 @@
                                             <td>
                                                 <ul>
                                                     <li>
-                                                        <a href="javascript:void(0)">
+                                                        <a href="{{route('route_admin_editProduct',['id'=>$prd->id])}}">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </a>
                                                     </li>
