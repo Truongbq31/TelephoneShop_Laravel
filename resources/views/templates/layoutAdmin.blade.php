@@ -201,11 +201,11 @@
                                 </a>
                                 <ul class="sidebar-submenu">
                                     <li>
-                                        <a href="category.html">Category List</a>
+                                        <a href="{{route('route_admin_categories')}}">Category List</a>
                                     </li>
 
                                     <li>
-                                        <a href="add-new-category.html">Add New Category</a>
+                                        <a href="{{route('route_admin_addCategories')}}">Add New Category</a>
                                     </li>
                                 </ul>
                             </li>

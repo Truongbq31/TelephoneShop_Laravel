@@ -38,6 +38,11 @@ class AllRequest extends FormRequest
                             "description"=>"required"
                         ];
                     break;
+                    case "addCategories":
+                        $rules = [
+                            'name'=>'required'
+                        ];
+                        break;
                 endswitch;
             break;
         endswitch;
