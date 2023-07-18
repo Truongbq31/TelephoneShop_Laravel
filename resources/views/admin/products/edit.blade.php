@@ -14,7 +14,7 @@
                                         <h5>Product Information</h5>
                                     </div>
 
-                                    <form action="{{route('route_admin_editProduct',['id'=>$product->id])}}" method="POST" enctype="multipart/form-data" class="theme-form theme-form-2 mega-form">
+                                    <form action="{{route('route_admin_editProducts',['id'=>$product->id])}}" method="POST" enctype="multipart/form-data" class="theme-form theme-form-2 mega-form">
                                         @csrf
                                         <div class="mb-4 row align-items-center">
                                             <label class="form-label-title col-sm-3 mb-0">Product Name</label>

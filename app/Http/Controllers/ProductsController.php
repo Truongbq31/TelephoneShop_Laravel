@@ -42,7 +42,7 @@ class ProductsController extends Controller
         return view('admin.products.add', compact('category'));
     }
 
-    public function editProduct(AllRequest $request, $id){
+    public function editProducts(AllRequest $request, $id){
         $category = DB::table('categories')->get();
         $product = DB::table('products')
             ->join('categories','products.category_id','=','categories.id')
