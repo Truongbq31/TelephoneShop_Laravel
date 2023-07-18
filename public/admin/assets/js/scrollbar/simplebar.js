@@ -3518,7 +3518,7 @@
 	 * A shim for the requestAnimationFrame which falls back to the setTimeout if
 	 * first one is not supported.
 	 *
-	 * @returns {number} Requests' identifier.
+	 * @returns {number} AllRequest' identifier.
 	 */
 	var requestAnimationFrame$1 = (function () {
 		if (typeof requestAnimationFrame === 'function') {

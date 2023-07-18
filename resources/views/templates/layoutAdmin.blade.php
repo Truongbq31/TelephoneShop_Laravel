@@ -79,74 +79,14 @@
                 </div>
                 <div class="toggle-sidebar">
                     <i class="status_toggle middle sidebar-toggle" data-feather="align-center"></i>
-                    <a href="index.html">
+                    <a href="{{route('route_admin_index')}}}">
                         <img src="{{asset('admin/assets/images/logo/1.png')}}" class="img-fluid" alt="">
                     </a>
                 </div>
             </div>
 
-            <form class="form-inline search-full" action="javascript:void(0)" method="get">
-                <div class="form-group w-100">
-                    <div class="Typeahead Typeahead--twitterUsers">
-                        <div class="u-posRelative">
-                            <input class="demo-input Typeahead-input form-control-plaintext w-100" type="text"
-                                   placeholder="Search..." name="q" title="" autofocus>
-                            <i class="close-search" data-feather="x"></i>
-                            <div class="spinner-border Typeahead-spinner" role="status">
-                                <span class="sr-only">Loading...</span>
-                            </div>
-                        </div>
-                        <div class="Typeahead-menu"></div>
-                    </div>
-                </div>
-            </form>
             <div class="nav-right col-6 pull-right right-header p-0">
                 <ul class="nav-menus">
-                    <li>
-                            <span class="header-search">
-                                <i class="ri-search-line"></i>
-                            </span>
-                    </li>
-                    <li class="onhover-dropdown">
-                        <div class="notification-box">
-                            <i class="ri-notification-line"></i>
-                            <span class="badge rounded-pill badge-theme">4</span>
-                        </div>
-                        <ul class="notification-dropdown onhover-show-div">
-                            <li>
-                                <i class="fa-solid fa-bell"></i>
-                                <h6 class="f-18 mb-0">Notitications</h6>
-                            </li>
-                            <li>
-                                <p>
-                                    <i class="fa fa-circle me-2 font-primary"></i>Delivery processing <span
-                                        class="pull-right">10 min.</span>
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    <i class="fa fa-circle me-2 font-success"></i>Order Complete<span
-                                        class="pull-right">1 hr</span>
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    <i class="fa fa-circle me-2 font-info"></i>Tickets Generated<span
-                                        class="pull-right">3 hr</span>
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    <i class="fa fa-circle me-2 font-danger"></i>Delivery Complete<span
-                                        class="pull-right">6 hr</span>
-                                </p>
-                            </li>
-                            <li>
-                                <a class="btn btn-primary" href="javascript:void(0)">Check all notification</a>
-                            </li>
-                        </ul>
-                    </li>
-
                     <li>
                         <div class="mode">
                             <i class="fa-solid fa-moon"></i>
@@ -157,7 +97,10 @@
                             <img class="user-profile rounded-circle" src="{{asset('admin/assets/images/users/4.jpg')}}" alt="">
                             <div class="user-name-hide media-body">
                                 <span>Emay Walter</span>
-                                <p class="mb-0 font-roboto">Admin<i class="middle ri-arrow-down-s-line"></i></p>
+                                <p class="mb-0 font-roboto">
+                                    Admin
+                                    <i class="fa-solid fa-user-tie"></i>
+                                </p>
                             </div>
                         </div>
                         <ul class="profile-dropdown onhover-show-div">
@@ -185,6 +128,8 @@
                                     <span>Settings</span>
                                 </a>
                             </li>
+
+{{--                        Logout here--}}
                             <li>
                                 <a data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                                    href="javascript:void(0)">
@@ -192,6 +137,8 @@
                                     <span>Log out</span>
                                 </a>
                             </li>
+{{--                        End logout--}}
+
                         </ul>
                     </li>
                 </ul>
@@ -207,34 +154,25 @@
             <div id="sidebarEffect"></div>
             <div>
                 <div class="logo-wrapper logo-wrapper-center">
-                    <a href="admin" data-bs-original-title="" title="">
+                    <a href="{{route('route_admin_index')}}" data-bs-original-title="" title="">
                         <img class="img-fluid for-white" src="{{asset('admin/assets/images/logo/full-white.png')}}" alt="logo">
                     </a>
-                    <div class="back-btn">
-                        <i class="fa fa-angle-left"></i>
-                    </div>
-                    <div class="toggle-sidebar">
-                        <i class="ri-apps-line status_toggle middle sidebar-toggle"></i>
-                    </div>
                 </div>
+
                 <div class="logo-icon-wrapper">
-                    <a href="admin">
+                    <a href="{{route('route_admin_index')}}">
                         <img class="img-fluid main-logo main-white" src="{{asset('admin/assets/images/logo/logo.png')}}" alt="logo">
-                        <img class="img-fluid main-logo main-dark" src="{{asset('admin/assets/images/logo/logo-white.png')}}"
-                             alt="logo">
+                        <img class="img-fluid main-logo main-dark" src="{{asset('admin/assets/images/logo/logo-white.png')}}" alt="logo">
                     </a>
                 </div>
-                <nav class="sidebar-main">
-                    <div class="left-arrow" id="left-arrow">
-                        <i data-feather="arrow-left"></i>
-                    </div>
 
+                <nav class="sidebar-main">
                     <div id="sidebar-menu">
                         <ul class="sidebar-links" id="simple-bar">
                             <li class="back-btn"></li>
 
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav" href="admin">
+                                <a class="sidebar-link sidebar-title link-nav" href="{{route('route_admin_index')}}">
                                     <i class="fa-solid fa-database"></i>
                                     <span>Dashboard</span>
                                 </a>
@@ -247,11 +185,11 @@
                                 </a>
                                 <ul class="sidebar-submenu">
                                     <li>
-                                        <a href="products.html">Prodcts</a>
+                                        <a href="{{route('route_admin_products')}}">Prodcts</a>
                                     </li>
 
                                     <li>
-                                        <a href="add-new-product.html">Add New Products</a>
+                                        <a href="{{route('route_admin_addProducts')}}">Add New Products</a>
                                     </li>
                                 </ul>
                             </li>
@@ -345,22 +283,6 @@
 
                             <li class="sidebar-list">
                                 <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
-                                    <i class="ri-focus-3-line"></i>
-                                    <span>Localization</span>
-                                </a>
-                                <ul class="sidebar-submenu">
-                                    <li>
-                                        <a href="translation.html">Translation</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="currency-rates.html">Currency Rates</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="sidebar-list">
-                                <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
                                     <i class="fa-solid fa-ticket"></i>
                                     <span>Coupons</span>
                                 </a>
@@ -376,25 +298,18 @@
                             </li>
 
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav" href="taxes.html">
-                                    <i class="ri-price-tag-3-line"></i>
-                                    <span>Tax</span>
-                                </a>
-                            </li>
-
-                            <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav" href="product-review.html">
                                     <i class="fa-solid fa-comment-dots"></i>
                                     <span>Product Review</span>
                                 </a>
                             </li>
 
-                            <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav" href="support-ticket.html">
-                                    <i class="fa-solid fa-headset"></i>
-                                    <span>Support Ticket</span>
-                                </a>
-                            </li>
+{{--                            <li class="sidebar-list">--}}
+{{--                                <a class="sidebar-link sidebar-title link-nav" href="support-ticket.html">--}}
+{{--                                    <i class="fa-solid fa-headset"></i>--}}
+{{--                                    <span>Support Ticket</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
 
                             <li class="sidebar-list">
                                 <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
@@ -408,35 +323,54 @@
                                 </ul>
                             </li>
 
-                            <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav" href="reports.html">
-                                    <i class="ri-file-chart-line"></i>
-                                    <span>Reports</span>
-                                </a>
-                            </li>
+{{--                            <li class="sidebar-list">--}}
+{{--                                <a class="sidebar-link sidebar-title link-nav" href="reports.html">--}}
+{{--                                    <i class="ri-file-chart-line"></i>--}}
+{{--                                    <span>Reports</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
 
-                            <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav" href="list-page.html">
-                                    <i class="ri-list-check"></i>
-                                    <span>List Page</span>
-                                </a>
-                            </li>
+{{--                            <li class="sidebar-list">--}}
+{{--                                <a class="sidebar-link sidebar-title link-nav" href="list-page.html">--}}
+{{--                                    <i class="ri-list-check"></i>--}}
+{{--                                    <span>List Page</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
                         </ul>
                     </div>
 
-                    <div class="right-arrow" id="right-arrow">
-                        <i data-feather="arrow-right"></i>
-                    </div>
+{{--                    <div class="right-arrow" id="right-arrow">--}}
+{{--                        <i class="fa-solid fa-arrow-right"></i>--}}
+{{--                    </div>--}}
                 </nav>
             </div>
         </div>
         <!-- Page Sidebar Ends-->
 
+
 {{--    Content here--}}
         <div>
+            <div style="margin-left: 300px; margin-top: 100px">
+                @include('templates.error')
+            </div>
+
             @yield("content")
+
+
         </div>
 {{--    end content--}}
+
+        <!-- footer Start -->
+        <div class="container-fluid">
+            <footer class="footer">
+                <div class="row">
+                    <div class="col-md-12 footer-copyright text-center">
+                        <p class="mb-0">Copyright 2022 © Fastkart theme by pixelstrap</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- footer En -->
 
     </div>
     <!-- Page Body End -->
@@ -510,6 +444,12 @@
 
 <!-- Theme js -->
 <script src="{{asset('admin/assets/js/script.js')}}"></script>
+
+
+<script src="{{asset('libs/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{asset('libs/input-mask/jquery.input-mask.js')}}"></script>
+@yield('script')
+
 </body>
 
 
