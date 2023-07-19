@@ -40,7 +40,7 @@ class AllRequest extends FormRequest
                     break;
                     case "addCategories":
                         $rules = [
-                            'name'=>'required'
+                            'name'=>'required|unique:categories'
                         ];
                         break;
                 endswitch;

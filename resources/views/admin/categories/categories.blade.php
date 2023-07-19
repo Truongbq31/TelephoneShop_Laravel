@@ -23,6 +23,10 @@
                                         <thead>
                                         <tr>
                                             <th>Cate Name</th>
+                                            <th>Slug</th>
+                                            <th>Status</th>
+                                            <th>Option</th>
+
                                         </tr>
                                         </thead>
 
@@ -32,6 +36,8 @@
                                             <tr>
 
                                                 <td>{{$cate->name}}</td>
+                                                <td>{{$cate->slug}}</td>
+                                                <td>{{$cate->status == 1 ? "Open" : "Close"}}</td>
                                                 <td>
                                                     <ul>
                                                         <li>
@@ -41,8 +47,7 @@
                                                         </li>
 
                                                         <li>
-                                                            <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                               data-bs-target="#exampleModalToggle">
+                                                            <a onclick="return confirm('Confirm delete?')" href="{{route("route_admin_deleteCategories", ['id'=>$cate->id])}}">
                                                                 <i class="fa-solid fa-trash-can"></i>
                                                             </a>
                                                         </li>

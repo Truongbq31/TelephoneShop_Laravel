@@ -64,8 +64,7 @@
                                                     </li>
 
                                                     <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                           data-bs-target="#exampleModalToggle">
+                                                        <a onclick="return confirm('Confirm delete?')" href="{{route('route_admin_deleteProducts',['id'=>$prd->id])}}">
                                                             <i class="fa-solid fa-trash-can"></i>
                                                         </a>
                                                     </li>

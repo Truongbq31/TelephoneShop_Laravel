@@ -18,13 +18,15 @@ Route::get('/', function () {
 });
 
 //Route admin
-Route::get('/telephone/admin', [\App\Http\Controllers\ProductsController::class, 'index'])->name('route_admin_index');
+Route::get('/telephone/admin', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('route_admin_index');
 //Products
-Route::get('/telephone/admin/products', [\App\Http\Controllers\ProductsController::class,'products'])->name('route_admin_products');
-Route::match(['GET', "POST"],'/telephone/admin/products/add',[\App\Http\Controllers\ProductsController::class,'addProducts'])->name('route_admin_addProducts');
-Route::match(['GET', "POST"],'/telephone/admin/products/edit/{id}',[\App\Http\Controllers\ProductsController::class,'editProducts'])->name('route_admin_editProducts');
+Route::get('/telephone/admin/products', [\App\Http\Controllers\Admin\ProductsController::class,'products'])->name('route_admin_products');
+Route::match(['GET', "POST"],'/telephone/admin/products/add',[\App\Http\Controllers\Admin\ProductsController::class,'addProducts'])->name('route_admin_addProducts');
+Route::match(['GET', "POST"],'/telephone/admin/products/edit/{id}',[\App\Http\Controllers\Admin\ProductsController::class,'editProducts'])->name('route_admin_editProducts');
+Route::get('/telephone/admin/products/delete/{id}', [\App\Http\Controllers\Admin\ProductsController::class, 'deleteProducts'])->name('route_admin_deleteProducts');
 //Categories
-Route::get('/telephone/admin/categories', [\App\Http\Controllers\Admin\CategoriesController::class,'categories'])->name('route_admin_categories');
-Route::match(['GET', "POST"],'/telephone/admin/categories/add',[\App\Http\Controllers\Admin\CategoriesController::class,'addCategories'])->name('route_admin_addCategories');
-Route::match(['GET', "POST"],'/telephone/admin/categories/edit/{id}',[\App\Http\Controllers\Admin\CategoriesController::class,'editCategories'])->name('route_admin_editCategories');
+Route::get('/telephone/admin/categories', [\App\Http\Controllers\Admin\CategoriesController::class,'index'])->name('route_admin_categories');
+Route::match(['GET', "POST"],'/telephone/admin/categories/add',[\App\Http\Controllers\Admin\CategoriesController::class, 'addCategories'])->name('route_admin_addCategories');
+Route::match(['GET', "POST"],'/telephone/admin/categories/edit/{id}',[\App\Http\Controllers\Admin\CategoriesController::class, 'editCategories'])->name('route_admin_editCategories');
+Route::get('/telephone/admin/categories/delete/{id}', [\App\Http\Controllers\Admin\CategoriesController::class,"deleteCategories"])->name('route_admin_deleteCategories');
 //End admin
