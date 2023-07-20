@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Categories extends Model
+class Products extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $table = "categories";
+    protected $table = "products";
     protected $fillable = [
-        "id", "name", "slug"
+        "id", "name", "image", "price", "description", "category_id"
     ];
 }

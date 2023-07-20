@@ -179,7 +179,7 @@
                             </li>
 
                             <li class="sidebar-list">
-                                <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
+                                <a class="sidebar-link sidebar-title link-nav" href="javascript:void(0)">
                                     <i class="fa-brands fa-product-hunt"></i>
                                     <span>Product</span>
                                 </a>
@@ -195,7 +195,7 @@
                             </li>
 
                             <li class="sidebar-list">
-                                <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
+                                <a class="sidebar-link sidebar-title link-nav" href="javascript:void(0)">
                                     <i class="fa-solid fa-bookmark"></i>
                                     <span>Category</span>
                                 </a>
@@ -211,7 +211,24 @@
                             </li>
 
                             <li class="sidebar-list">
-                                <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
+                                <a class="sidebar-link sidebar-title link-nav" href="javascript:void(0)">
+                                    <i class="fa-solid fa-photo-film"></i>
+                                    <span>Banner</span>
+                                </a>
+
+                                <ul class="sidebar-submenu">
+                                    <li>
+                                        <a href="{{route('route_admin_banners')}}">Banner</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{route('route_admin_addBanners')}}">Add Banner</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="sidebar-list">
+                                <a class="sidebar-link sidebar-title link-nav" href="javascript:void(0)">
                                     <i class="fa-solid fa-mattress-pillow"></i>
                                     <span>Attributes</span>
                                 </a>
@@ -227,7 +244,7 @@
                             </li>
 
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title" href="javascript:void(0)">
+                                <a class="sidebar-link sidebar-title link-nav" href="javascript:void(0)">
                                     <i class="fa-solid fa-users"></i>
                                     <span>Users</span>
                                 </a>
@@ -242,7 +259,7 @@
                             </li>
 
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title" href="javascript:void(0)">
+                                <a class="sidebar-link sidebar-title link-nav" href="javascript:void(0)">
                                     <i class="fa-solid fa-hand-sparkles"></i>
                                     <span>Roles</span>
                                 </a>
@@ -256,15 +273,9 @@
                                 </ul>
                             </li>
 
-                            <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav" href="media.html">
-                                    <i class="fa-solid fa-photo-film"></i>
-                                    <span>Media</span>
-                                </a>
-                            </li>
 
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title" href="javascript:void(0)">
+                                <a class="sidebar-link sidebar-title link-nav" href="javascript:void(0)">
                                     <i class="fa-solid fa-photo-film"></i>
                                     <span>Orders</span>
                                 </a>
@@ -282,7 +293,7 @@
                             </li>
 
                             <li class="sidebar-list">
-                                <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
+                                <a class="sidebar-link sidebar-title link-nav" href="javascript:void(0)">
                                     <i class="fa-solid fa-ticket"></i>
                                     <span>Coupons</span>
                                 </a>
@@ -312,7 +323,7 @@
 {{--                            </li>--}}
 
                             <li class="sidebar-list">
-                                <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
+                                <a class="sidebar-link sidebar-title link-nav" href="javascript:void(0)">
                                     <i class="fa-solid fa-gear"></i>
                                     <span>Settings</span>
                                 </a>

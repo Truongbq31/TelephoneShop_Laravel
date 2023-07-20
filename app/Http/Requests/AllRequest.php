@@ -43,6 +43,16 @@ class AllRequest extends FormRequest
                             'name'=>'required|unique:categories'
                         ];
                         break;
+                    case "addBanners":
+                        $rules = [
+                            'image'=>'required|image|mimes:jpe,png,jpg|max:5120',
+                        ];
+                        break;
+                    case "editBanners":
+                        $rules = [
+                            'image'=>'image|mimes:jpe,png,jpg|max:5120',
+                        ];
+                        break;
                 endswitch;
             break;
         endswitch;

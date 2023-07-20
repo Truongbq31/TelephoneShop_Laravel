@@ -4,9 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AllRequest;
-use App\Models\Categories;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\Admin\Categories;
 use Illuminate\Support\Facades\Session;
 
 class CategoriesController extends Controller
