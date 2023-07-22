@@ -53,6 +53,18 @@ class AllRequest extends FormRequest
                             'image'=>'image|mimes:jpe,png,jpg|max:5120',
                         ];
                         break;
+                    case "addAttributes":
+                        $rules = [
+                            'name'=>'required|',
+                            'value'=>'required',
+                        ];
+                        break;
+                    case "editAttributes":
+                        $rules = [
+                            'name'=>'required',
+                            'value'=>'required',
+                        ];
+                        break;
                 endswitch;
             break;
         endswitch;

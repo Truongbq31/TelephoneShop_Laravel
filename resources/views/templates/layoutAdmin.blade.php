@@ -234,11 +234,11 @@
                                 </a>
                                 <ul class="sidebar-submenu">
                                     <li>
-                                        <a href="attributes.html">Attributes</a>
+                                        <a href="{{route('route_admin_attributes')}}">Attributes</a>
                                     </li>
 
                                     <li>
-                                        <a href="add-new-attributes.html">Add Attributes</a>
+                                        <a href="{{route('route_admin_addAttributes')}}">Add Attributes</a>
                                     </li>
                                 </ul>
                             </li>
@@ -254,21 +254,6 @@
                                     </li>
                                     <li>
                                         <a href="add-new-user.html">Add new user</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav" href="javascript:void(0)">
-                                    <i class="fa-solid fa-hand-sparkles"></i>
-                                    <span>Roles</span>
-                                </a>
-                                <ul class="sidebar-submenu">
-                                    <li>
-                                        <a href="role.html">All roles</a>
-                                    </li>
-                                    <li>
-                                        <a href="create-role.html">Create Role</a>
                                     </li>
                                 </ul>
                             </li>
