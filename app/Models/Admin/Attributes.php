@@ -13,4 +13,7 @@ class Attributes extends Model
     protected $fillable = [
         'id', 'name', 'value'
     ];
+    public function products(){
+        return $this->belongsToMany(Products::class,'products_attributes');
+    }
 }

@@ -245,6 +245,22 @@
 
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav" href="javascript:void(0)">
+                                    <i class="fa-solid fa-mattress-pillow"></i>
+                                    <span>ProductsAttributes</span>
+                                </a>
+                                <ul class="sidebar-submenu">
+                                    <li>
+                                        <a href="{{route('route_admin_productsAttributes')}}">ProductsAttributes</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{route('route_admin_addProductsAttributes')}}">Add ProductsAttributes</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="sidebar-list">
+                                <a class="sidebar-link sidebar-title link-nav" href="javascript:void(0)">
                                     <i class="fa-solid fa-users"></i>
                                     <span>Users</span>
                                 </a>

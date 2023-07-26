@@ -16,6 +16,7 @@ class AllRequest extends FormRequest
         return true;
     }
 
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -23,6 +24,7 @@ class AllRequest extends FormRequest
      */
     public function rules()
     {
+
         $rules = [];
         $currentAction = $this->route()->getActionMethod();
 //        dd($currentAction);

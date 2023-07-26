@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Storage;
 
 class BannersController extends Controller
 {
-    public function Banners(){
+    public function banners(){
 //        $banners = DB::table('banners')->get();
         $banners = Banners::all();
 
