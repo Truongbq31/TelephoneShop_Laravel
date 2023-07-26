@@ -29,7 +29,7 @@
                                             <label class="form-label-title col-sm-3 mb-0">Attributes Value</label>
                                             <select class="js-example-basic-single w-100" name="attributes_id">
                                                 @foreach($attributes  as $value)
-                                                    <option value="{{$value->id}}" {{$value->value==$productsAttributes->attributes->value?'selected':''}}>{{$value->value}}</option>
+                                                    <option value="{{$value->id}}" {{$value->value==$productsAttributes->attribute->value?'selected':''}}>{{$value->value}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
