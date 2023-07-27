@@ -48,3 +48,12 @@ Route::match(['GET', 'POST'], '/telephone/admin/productsAttributes/edit/{product
 
 
 //End admin
+
+
+//Route Client
+Route::get('/telephone/index', [\App\Http\Controllers\Client\IndexController::class,'index'])->name('route_client_index');
+Route::get('/telephone/products', [\App\Http\Controllers\Client\ProductsController::class,'products'])->name('route_client_products');
+Route::get('/telephone/products/detail/{id}', [\App\Http\Controllers\Client\ProductsController::class,'productsDetail'])->name('route_client_productsDetail');
+Route::get('/telephone/products/{name}', [\App\Http\Controllers\Client\ProductsController::class,'productsByCategoriesName'])->name('route_client_prdByCategoriesName');
+
+//End client
