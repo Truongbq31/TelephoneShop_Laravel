@@ -28,6 +28,7 @@
                                             <th>Description</th>
                                             <th>Price</th>
                                             <th>Status</th>
+                                            <th>img prd</th>
                                             <th>Option</th>
                                         </tr>
                                         </thead>
@@ -38,7 +39,7 @@
                                         <tr>
                                             <td>
                                                 <div class="table-image">
-                                                    <img src="{{ $prd->image?''.Storage::url($prd->image):''}}" class="img-fluid"
+                                                    <img src="{{$prd->image ? ''.Storage::url($prd->image) : ''}}" class="img-fluid"
                                                          alt="">
                                                 </div>
                                             </td>
@@ -53,6 +54,19 @@
 
                                             <td class="status-close">
                                                 <span>{{$prd->status == 1 ? "Stock" : "Out of stock"}}</span>
+                                            </td>
+
+                                            <td>
+
+                                                <div class="table-image">
+                                                    @foreach($img_products as $img)
+                                                        @if($img->id_products == $prd->id)
+                                                        <img src="{{''.\Illuminate\Support\Facades\Storage::url($img->images)}}" class="img-fluid"
+                                                         alt="">
+                                                        @endif
+                                                    @endforeach
+                                                </div>
+
                                             </td>
 
                                             <td>

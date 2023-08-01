@@ -62,22 +62,6 @@
                                         </div>
 
                                         <div class="mb-4 row align-items-center">
-                                            <label class="col-sm-3 col-form-label form-label-title">Image</label>
-                                            <div class="col-sm-9">
-                                                <div class="form-group">
-                                                    <div class="row">
-                                                        <div class="col-xs-6">
-                                                            <img id="mat_truoc_preview" src="{{''.Storage::url($product->image)}}" alt="Your image"
-                                                                 style="max-width: 200px; height:100px; margin-bottom: 10px;" class="img-fluid"/>
-                                                            <input value="{{$product->image}}" type="file" name="image" accept="image/*"
-                                                                   class="form-control-file form-control form-choose @error('image') is-invalid @enderror" id="cmt_truoc">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="mb-4 row align-items-center">
                                             <label class="col-sm-3 form-label-title">Price</label>
                                             <div class="col-sm-9">
                                                 <input value="{{$product->price}}" name="price" class="form-control" type="text" placeholder="0">
@@ -90,6 +74,38 @@
                                                 <textarea name="description" class="form-control" rows="3">{{$product->description}}</textarea>
                                             </div>
                                         </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <div class="card-header-2">
+                                                <h5>Product Images</h5>
+                                            </div>
+
+                                            <div class="mb-4 row align-items-center">
+                                                <label class="col-sm-3 col-form-label form-label-title">Thumbnails Image</label>
+                                                <div class="col-sm-9">
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-xs-6">
+                                                                <img id="mat_truoc_preview" src="{{''.\Illuminate\Support\Facades\Storage::url($product->image)}}" alt="your image"
+                                                                     style="max-width: 200px; height:100px; margin-bottom: 10px;" class="img-fluid"/>
+                                                                <input type="file" name="image" accept="image/*"
+                                                                       class="form-control-file form-control form-choose @error('image') is-invalid @enderror" id="cmt_truoc">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-4 row align-items-center">
+                                                <label
+                                                    class="col-sm-3 col-form-label form-label-title">Images</label>
+                                                <div class="col-sm-9">
+                                                    <input name="images[]" class="form-control form-choose" type="file"
+                                                           id="formFile" multiple>
+                                                </div>
+                                            </div>
+                                        </div>
+
 
                                         <button type="submit" class="btn btn-success">Save</button>
                                     </form>
