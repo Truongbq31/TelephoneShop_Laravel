@@ -5,8 +5,11 @@
 {{--        <div class="carousel-item active">--}}
 {{--            <img src="{{asset('client/assets/img/slider/shape/slider-shape-1.png')}}" class="d-block w-100" alt="...">--}}
 {{--        </div>--}}
+        <div class="carousel-item active">
+            <img src="https://hoanghamobile.com/tin-tuc/wp-content/uploads/2020/07/banner-trang-tin-sale.jpg" class="d-block w-100" alt="...">
+        </div>
         @foreach($banners as $bn)
-        <div class="carousel-item @php echo $bn->id == 1 ? 'active' : ''@endphp">
+        <div class="carousel-item">
             <img src="{{''.\Illuminate\Support\Facades\Storage::url($bn->image)}}" class="d-block w-100" alt="...">
         </div>
         @endforeach

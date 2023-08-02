@@ -75,19 +75,6 @@ class ProductsController extends Controller
             ->select('products.*', 'categories.name as cate_name')
             ->where('products.id', '=', $id)
             ->first();
-//        dd($product);
-        $img_prd = DB::table('img_products')
-            ->where('id_products','=',$id)
-            ->get();
-        foreach ($img_prd as $imgP){
-            if ($imgP->id_products == $product->id){
-                $idImgPrd = $imgP->id;
-            }
-        }
-//        dd($img_prd);
-
-//        $products = Products::find($id);
-//        dd($products);
 
         if ($request->isMethod('POST')){
             $params = $request->except('_token', 'images');
@@ -100,27 +87,36 @@ class ProductsController extends Controller
             }else{
                 $params['image'] = $product->image;
             }
+
+            $result = Products::where('id', $id)
+                ->update($params);
 //            dd($params);
 
+
+            $imgs_prd = DB::table('img_products')
+                ->where('id_products','=',$id)
+                ->get();
+//            dd($img_prd);
+
             if ($request->has('images')){
-                foreach ($img_prd as $img){
+                foreach ($imgs_prd as $img){
 //                    dd($img);
                     $deleteImages = Storage::delete('/public/'.$img->images);
+                    ImgProducts::where('id_products', $id)->delete();
                 }
+//                dd($img);
                 if ($deleteImages){
                     foreach ($request->file('images') as $image){
-//                    dd($request->images);
                         $imageName = 'images/'.time().'_'.$image->getClientOriginalName();
                         $image->move(public_path('storage/images'), $imageName);
-                        ImgProducts::where('id', $idImgPrd)->update([
-                            'images'=>$imageName
+                        ImgProducts::create([
+                            'id_products' => $id,
+                            'images' => $imageName
                         ]);
                     }
                 }
             }
 
-            $result = Products::where('id', $id)
-                ->update($params);
             if ($result){
                 Session::flash('success', "Success!");
                 return redirect()->route('route_admin_editProducts',['id'=>$id]);
@@ -130,7 +126,24 @@ class ProductsController extends Controller
     }
 
     public function deleteProducts($id){
-        Products::where('id', $id)->delete();
+        $del = Products::find($id);
+        $imgPrd = ImgProducts::all();
+        $imgs = [];
+        foreach ($imgPrd as $img){
+            if ($img->id_products == $id){
+                array_push($imgs, $img->images);
+            }
+        }
+//        dd($imgs);
+        if ($del->id){
+            Storage::delete('public/'.$del->image);
+            Products::where('id', $id)->delete();
+            ImgProducts::where('id_products', $id)->delete();
+            foreach ($imgs as $value){
+//                dd($value);
+                Storage::delete('public/'.$value);
+            }
+        }
         Session::flash('success', "Success!");
         return redirect()->route('route_admin_products');
     }

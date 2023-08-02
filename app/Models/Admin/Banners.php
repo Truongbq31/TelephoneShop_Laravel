@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Banners extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
     protected $table = "banners";
     protected $fillable = [
         'id', 'image'

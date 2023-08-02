@@ -29,6 +29,8 @@ class ProductsController extends Controller
 
     public function productsDetail($id){
         $categories = $this->categories;
+        $imgsPrd = DB::table('img_products')->where('id_products', '=', $id)->get();
+//        dd($imgsPrd);
         $productsDetail = DB::table('products')
             ->join("categories", "products.category_id",'=', 'categories.id')
             ->select('products.*', "categories.name as cate_name")
@@ -36,9 +38,15 @@ class ProductsController extends Controller
             ->whereNull('products.deleted_at')
             ->get();
 
-//        dd($productsDetail);
+        $prdByCate = DB::table('products')
+            ->join('categories', 'products.category_id', '=','categories.id')
+            ->select('products.*', "categories.name as cate_name")
+            ->whereNull('products.deleted_at')
+            ->get();
 
-        return view('client.products.productsDetail', compact('productsDetail', 'categories'));
+//        dd($prdByCate, $productsDetail);
+
+        return view('client.products.productsDetail', compact('productsDetail', 'categories', 'imgsPrd', 'prdByCate'));
     }
     public function productsByCategoriesName($name){
         $categories = $this->categories;

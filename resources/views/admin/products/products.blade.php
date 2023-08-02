@@ -22,13 +22,13 @@
                                     <table class="table all-package theme-table table-product" id="table_id">
                                         <thead>
                                         <tr>
-                                            <th>Product Image</th>
+                                            <th>Thumbnails Image</th>
                                             <th>Product Name</th>
+                                            <th>List Image Product</th>
                                             <th>Category</th>
                                             <th>Description</th>
                                             <th>Price</th>
                                             <th>Status</th>
-                                            <th>img prd</th>
                                             <th>Option</th>
                                         </tr>
                                         </thead>
@@ -46,6 +46,19 @@
 
                                             <td>{{$prd->name}}</td>
 
+                                            <td>
+
+                                                <div class="table-image">
+                                                    @foreach($img_products as $img)
+                                                        @if($img->id_products == $prd->id)
+                                                            <img src="{{''.\Illuminate\Support\Facades\Storage::url($img->images)}}" class="img-fluid"
+                                                                 alt="">
+                                                        @endif
+                                                    @endforeach
+                                                </div>
+
+                                            </td>
+
                                             <td>{{$prd->cate_name}}</td>
 
                                             <td class="colum-description">{{$prd->description}}</td>
@@ -54,19 +67,6 @@
 
                                             <td class="status-close">
                                                 <span>{{$prd->status == 1 ? "Stock" : "Out of stock"}}</span>
-                                            </td>
-
-                                            <td>
-
-                                                <div class="table-image">
-                                                    @foreach($img_products as $img)
-                                                        @if($img->id_products == $prd->id)
-                                                        <img src="{{''.\Illuminate\Support\Facades\Storage::url($img->images)}}" class="img-fluid"
-                                                         alt="">
-                                                        @endif
-                                                    @endforeach
-                                                </div>
-
                                             </td>
 
                                             <td>

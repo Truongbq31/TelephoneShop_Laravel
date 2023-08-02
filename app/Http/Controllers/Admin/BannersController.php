@@ -28,7 +28,7 @@ class BannersController extends Controller
             $banners = Banners::create($params);
             if ($banners->id){
                 Session::flash('success', "Success!");
-                return redirect()->route('route_admin_banners');
+                return redirect()->route('route_admin_addBanners');
             }
         }
 
@@ -59,6 +59,8 @@ class BannersController extends Controller
     }
 
     public function deleteBanners($id){
+        $banner = Banners::find($id);
+        Storage::delete('/public/'.$banner->image);
         Banners::where('id', $id)->delete();
         Session::flash('success', "Success!");
         return redirect()->route('route_admin_banners');

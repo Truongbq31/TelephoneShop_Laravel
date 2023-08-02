@@ -20755,5 +20755,13 @@ product all slider
   font-weight: 500;
   margin-left: 0;
 }
+.tp-product-thumb-2 {
+    height: 300px !important;
+    width: 100% !important;
+}
+.tp-product-thumb{
+    height: 300px !important;
+    width: 100% !important;
+}
 
 /*# sourceMappingURL=main.css.map */
