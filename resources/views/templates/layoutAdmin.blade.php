@@ -96,34 +96,18 @@
                         <div class="media profile-media">
                             <img class="user-profile rounded-circle" src="{{asset('admin/assets/images/users/4.jpg')}}" alt="">
                             <div class="user-name-hide media-body">
-                                <span>Emay Walter</span>
+                                @php $user = \App\Models\Admin\User::find(\Illuminate\Support\Facades\Auth::user()->id) @endphp
+                                <span>{{$user->name}}</span>
                                 <p class="mb-0 font-roboto">
-                                    Admin
+                                    {{$user->role == 1 ? "Admin" : ""}}
                                     <i class="fa-solid fa-user-tie"></i>
                                 </p>
+
                             </div>
                         </div>
                         <ul class="profile-dropdown onhover-show-div">
                             <li>
-                                <a href="all-users.html">
-                                    <i class="fa-regular fa-user"></i>
-                                    <span>Users</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="order-list.html">
-                                    <i data-feather="archive"></i>
-                                    <span>Orders</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="support-ticket.html">
-                                    <i data-feather="phone"></i>
-                                    <span>Spports Tickets</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="profile-setting.html">
+                                <a href="{{route('route_admin_editUsers',['id'=>\Illuminate\Support\Facades\Auth::user()->id])}}">
                                     <i class="fa-solid fa-gear"></i>
                                     <span>Settings</span>
                                 </a>
@@ -131,8 +115,7 @@
 
 {{--                        Logout here--}}
                             <li>
-                                <a data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                   href="javascript:void(0)">
+                                <a onclick="return confirm('Are you sure you want to log out?')" href="{{route('route_admin_logout')}}">
                                     <i data-feather="log-out"></i>
                                     <span>Log out</span>
                                 </a>
@@ -266,10 +249,7 @@
                                 </a>
                                 <ul class="sidebar-submenu">
                                     <li>
-                                        <a href="all-users.html">All users</a>
-                                    </li>
-                                    <li>
-                                        <a href="add-new-user.html">Add new user</a>
+                                        <a href="{{route('route_admin_users')}}">All users</a>
                                     </li>
                                 </ul>
                             </li>
@@ -330,7 +310,7 @@
                                 </a>
                                 <ul class="sidebar-submenu">
                                     <li>
-                                        <a href="profile-setting.html">Profile Setting</a>
+                                        <a href="{{route('route_admin_editUsers',['id'=>\Illuminate\Support\Facades\Auth::user()->id])}}">Profile Setting</a>
                                     </li>
                                 </ul>
                             </li>

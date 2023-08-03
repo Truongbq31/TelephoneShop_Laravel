@@ -61,7 +61,7 @@
 
                                             <td>{{$prd->cate_name}}</td>
 
-                                            <td class="colum-description">{{$prd->description}}</td>
+                                            <td class="">{{$prd->description}}</td>
 
                                             <td class="td-price">${{$prd->price}}</td>
 

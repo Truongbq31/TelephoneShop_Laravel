@@ -67,6 +67,22 @@ class AllRequest extends FormRequest
                             'value'=>'required',
                         ];
                         break;
+                    case "register":
+                        $rules = [
+                            'name'=>'required|string',
+                            'email'=>'required|unique:users',
+                            'password'=>'required|min:6',
+                            'confirm_password'=>'required|min:6'
+                        ];
+                        break;
+                    case "editUsers":
+                        $rules = [
+                            'name'=>'required|string',
+                            'email'=>'required',
+                            'new_password'=>'required|min:6',
+                            'confirm_new_password'=>'required|min:6'
+                        ];
+                        break;
                 endswitch;
             break;
         endswitch;
