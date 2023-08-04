@@ -65,6 +65,13 @@ Route::get('/telephone/index', [\App\Http\Controllers\Client\IndexController::cl
 Route::get('/telephone/products', [\App\Http\Controllers\Client\ProductsController::class,'products'])->name('route_client_products');
 Route::get('/telephone/products/detail/{id}', [\App\Http\Controllers\Client\ProductsController::class,'productsDetail'])->name('route_client_productsDetail');
 Route::get('/telephone/products/{name}', [\App\Http\Controllers\Client\ProductsController::class,'productsByCategoriesName'])->name('route_client_prdByCategoriesName');
-
+//cart
+Route::prefix('cart')->group(function (){
+    Route::get('add/{id}',[\App\Http\Controllers\Client\CartController::class,'add'])->name('route_cart_add');
+    Route::get('/',[\App\Http\Controllers\Client\CartController::class,'index'])->name('route_cart_index');
+    Route::get('delete/{id}',[\App\Http\Controllers\Client\CartController::class,'delete'])->name('route_cart_delete');
+    Route::get('/update',[\App\Http\Controllers\Client\CartController::class,'update'])->name('route_cart_update');
+});
 //End client
+
 

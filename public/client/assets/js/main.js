@@ -1674,6 +1674,7 @@
 			$input.val(count);
 			$input.change();
 			return false;
+
 		});
 
 		$('.tp-cart-plus').on('click', function () {
@@ -1681,6 +1682,7 @@
 			$input.val(parseInt($input.val()) + 1);
 			$input.change();
 			return false;
+
 		});
 
 		$("#slider-range").slider({
@@ -1757,6 +1759,7 @@
 			  $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
 			},
 		});
+
 	}
 	tp_ecommerce();
 

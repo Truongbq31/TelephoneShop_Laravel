@@ -108,7 +108,7 @@
                                             </div>
                                         </div>
                                         <div class="tp-product-details-add-to-cart mb-15 w-100">
-                                            <button class="tp-product-details-add-to-cart-btn w-100">Add To Cart</button>
+                                            <a type="button" class="tp-product-details-add-to-cart-btn w-100" href="{{route('route_cart_add',['id'=>$prd->id]}}">Add To Cart</a>
                                         </div>
                                     </div>
                                     <button class="tp-product-details-buy-now-btn w-100">Buy Now</button>

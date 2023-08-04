@@ -15,6 +15,7 @@
     <link rel="icon" href="{{asset('admin/assets/images/favicon.png')}}" type="image/x-icon">
     <link rel="shortcut icon" href="{{asset('admin/assets/images/favicon.png')}}" type="image/x-icon">
     <script src="https://kit.fontawesome.com/ef9e733f3a.js" crossorigin="anonymous"></script>
+
     <title>Fastkart - Dashboard</title>
 
     <!-- Google font-->

@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="{{asset('client/assets/css/flaticon_shofy.css')}}">
     <link rel="stylesheet" href="{{asset('client/assets/css/spacing.css')}}">
     <link rel="stylesheet" href="{{asset('client/assets/css/main.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/boosted@5.2.3/dist/css/orange-helvetica.min.css" rel="stylesheet" integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/boosted@5.2.3/dist/css/boosted.min.css" rel="stylesheet" integrity="sha384-zYFw+mxKy6r9zpAc1NoGiYBfQmxfvg7ONEMr81WeU+WLPPaLC9QTrNGFJTBi3EIn" crossorigin="anonymous">
 </head>
 <body>
 <!--[if lte IE 9]>
@@ -235,29 +237,34 @@
                     <button type="button" class="cartmini__close-btn cartmini-close-btn"><i class="fal fa-times"></i></button>
                 </div>
             </div>
-            <div class="cartmini__shipping">
-                <p> Free Shipping for all orders over <span>$50</span></p>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" data-width="70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-            </div>
+{{--            <div class="cartmini__shipping">--}}
+{{--                <p> Free Shipping for all orders over <span>$50</span></p>--}}
+{{--                <div class="progress">--}}
+{{--                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" data-width="70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+
             <div class="cartmini__widget">
+                @foreach(Cart::content() as $cart)
                 <div class="cartmini__widget-item">
+
                     <div class="cartmini__thumb">
                         <a href="product-details.html">
-                            <img src="{{asset('client/assets/img/product/product-1.jpg')}}" alt="">
+                            <img src="{{''.\Illuminate\Support\Facades\Storage::url($cart->options->image)}}" alt="">
                         </a>
                     </div>
                     <div class="cartmini__content">
-                        <h5 class="cartmini__title"><a href="product-details.html">Level Bolt Smart Lock</a></h5>
+                        <h5 class="cartmini__title"><a href="product-details.html">{{$cart->name}}</a></h5>
                         <div class="cartmini__price-wrapper">
-                            <span class="cartmini__price">$46.00</span>
-                            <span class="cartmini__quantity">x2</span>
+                            <span class="cartmini__price">{{number_format($cart->price * $cart->qty)}}</span>
+                            <span class="cartmini__quantity">x{{$cart->qty}}</span>
                         </div>
                     </div>
-                    <a href="#" class="cartmini__del"><i class="fa-regular fa-xmark"></i></a>
+                    <i onclick="window.location='{{route('route_cart_delete',['id'=> $cart->rowId])}}'" class="cartmini__del"><i class="fa-regular fa-xmark"></i></i>
                 </div>
+                @endforeach
             </div>
+
             <!-- for wp -->
             <!-- if no item in cart -->
             <div class="cartmini__empty text-center d-none">
@@ -269,10 +276,10 @@
         <div class="cartmini__checkout">
             <div class="cartmini__checkout-title mb-30">
                 <h4>Subtotal:</h4>
-                <span>$113.00</span>
+                <span>{{Cart::subtotal()}}</span>
             </div>
             <div class="cartmini__checkout-btn">
-                <a href="cart.html" class="tp-btn mb-10 w-100"> view cart</a>
+                <a href="{{route('route_cart_index')}}" class="tp-btn mb-10 w-100"> view cart</a>
                 <a href="checkout.html" class="tp-btn tp-btn-border w-100"> checkout</a>
             </div>
         </div>
@@ -443,7 +450,7 @@
                                             <path d="M7.70365 10.1018H7.74942" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                             <path d="M13.5343 10.1018H13.5801" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
-                                        <span class="tp-header-action-badge">13</span>
+                                        <span class="tp-header-action-badge">{{Cart::count()}}</span>
                                     </button>
                                 </div>
                                 <div class="tp-header-action-item d-lg-none">
@@ -971,6 +978,8 @@
 <script src="{{asset('client/assets/js/imagesloaded-pkgd.js')}}"></script>
 <script src="{{asset('client/assets/js/ajax-form.js')}}"></script>
 <script src="{{asset('client/assets/js/main.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/boosted@5.2.3/dist/js/boosted.bundle.min.js" integrity="sha384-MANW37RG4MpFWPMCcNZBnvSobOkBpIGlbBkEzTtD4FbbOzJXbW8TddND1ak2lfsB" crossorigin="anonymous"></script>
+
 </body>
 
 <!-- Mirrored from weblearnbd.net/tphtml/shofy-prv/shofy/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Jul 2023 09:23:11 GMT -->
