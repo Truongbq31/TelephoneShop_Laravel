@@ -7,14 +7,7 @@
                     <div class="card card-table">
                         <div class="card-body">
                             <div class="title-header option-title d-sm-flex d-block">
-                                <h5>Categories List</h5>
-                                <div class="right-options">
-                                    <ul>
-                                        <li>
-                                            <a class="btn btn-solid" href="">Add Categories</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <h5>User List</h5>
                             </div>
                             {{--                            <label>Search:<input type="search" class="" placeholder="" aria-controls="table_id"></label>--}}
                             <div>
@@ -26,7 +19,7 @@
                                             <th>Email</th>
                                             <th>Status</th>
                                             <th>Role</th>
-                                            <th>Option</th>
+                                            <th>Action</th>
 
                                         </tr>
                                         </thead>

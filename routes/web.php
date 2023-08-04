@@ -59,13 +59,23 @@ Route::middleware(['auth', 'check.login'])->group(function (){
 //End admin
 });
 
+//Login
+Route::match(['GET', 'POST'], '/telephone/index/login', [\App\Http\Controllers\Client\LoginController::class, 'login'])->name('route_client_login');
+Route::get('telephone/index/logout', [\App\Http\Controllers\Client\LoginController::class, 'logout'])->name('route_client_logout');
+Route::match(['GET','POST'],'telephone/index/register', [\App\Http\Controllers\Client\LoginController::class, 'register'])->name('route_client_register');
+
 
 //Route Client
 Route::get('/telephone/index', [\App\Http\Controllers\Client\IndexController::class,'index'])->name('route_client_index');
 Route::get('/telephone/products', [\App\Http\Controllers\Client\ProductsController::class,'products'])->name('route_client_products');
 Route::get('/telephone/products/detail/{id}', [\App\Http\Controllers\Client\ProductsController::class,'productsDetail'])->name('route_client_productsDetail');
 Route::get('/telephone/products/{name}', [\App\Http\Controllers\Client\ProductsController::class,'productsByCategoriesName'])->name('route_client_prdByCategoriesName');
-//cart
+Route::get('/telephone/profile',[\App\Http\Controllers\Client\UserController::class,'profile'])->name('route_client_profile');
+Route::match(['GET', 'POST'], 'telephone/profile/update/{id}', [\App\Http\Controllers\Client\UserController::class, 'updateProfile'])->name('route_client_updateProfile');
+Route::match(['GET', 'POST'], 'telephone/profile/changePassword/{id}',[\App\Http\Controllers\Client\UserController::class,'changePassword'])->name('route_client_changePassword');
+
+
+//Cart
 Route::prefix('cart')->group(function (){
     Route::get('add/{id}',[\App\Http\Controllers\Client\CartController::class,'add'])->name('route_cart_add');
     Route::get('/',[\App\Http\Controllers\Client\CartController::class,'index'])->name('route_cart_index');
@@ -73,5 +83,4 @@ Route::prefix('cart')->group(function (){
     Route::get('/update',[\App\Http\Controllers\Client\CartController::class,'update'])->name('route_cart_update');
 });
 //End client
-
 

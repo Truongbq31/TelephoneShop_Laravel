@@ -64,52 +64,52 @@
                         <form method="POST" action="{{route('route_client_register')}}">
                             @csrf
                             <div class="tp-login-option">
-                            <div class="tp-login-input-wrapper">
-                                <div class="tp-login-input-box">
-                                    <div class="tp-login-input">
-                                        <input name="name" id="name" type="text" placeholder="Shahnewaz Sakil">
+                                <div class="tp-login-input-wrapper">
+                                    <div class="tp-login-input-box">
+                                        <div class="tp-login-input">
+                                            <input name="name" id="name" type="text" placeholder="Shahnewaz Sakil">
+                                        </div>
+                                        <div class="tp-login-input-title">
+                                            <label for="name">Your Name</label>
+                                        </div>
                                     </div>
-                                    <div class="tp-login-input-title">
-                                        <label for="name">Your Name</label>
+                                    <div class="tp-login-input-box">
+                                        <div class="tp-login-input">
+                                            <input name="email" id="email" type="email" placeholder="shofy@mail.com">
+                                        </div>
+                                        <div class="tp-login-input-title">
+                                            <label for="email">Your Email</label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="tp-login-input-box">
-                                    <div class="tp-login-input">
-                                        <input name="email" id="email" type="email" placeholder="shofy@mail.com">
+                                    <div class="tp-login-input-box">
+                                        <div class="tp-login-input">
+                                            <input name="password" id="tp_password" type="password" placeholder="Min. 6 character">
+                                        </div>
+                                        <div class="tp-login-input-title">
+                                            <label for="tp_password">Password</label>
+                                        </div>
                                     </div>
-                                    <div class="tp-login-input-title">
-                                        <label for="email">Your Email</label>
-                                    </div>
-                                </div>
-                                <div class="tp-login-input-box">
-                                    <div class="tp-login-input">
-                                        <input name="password" id="tp_password" type="password" placeholder="Min. 6 character">
-                                    </div>
-                                    <div class="tp-login-input-title">
-                                        <label for="tp_password">Password</label>
-                                    </div>
-                                </div>
 
-                                <div class="tp-login-input-box">
-                                    <div class="tp-login-input">
-                                        <input name="confirm_password" id="tp_password" type="password" placeholder="Min. 6 character">
+                                    <div class="tp-login-input-box">
+                                        <div class="tp-login-input">
+                                            <input name="confirm_password" id="tp_password" type="password" placeholder="Min. 6 character">
+                                        </div>
+                                        <div class="tp-login-input-title">
+                                            <label for="tp_password">Confirm Password</label>
+                                        </div>
                                     </div>
-                                    <div class="tp-login-input-title">
-                                        <label for="tp_password">Confirm Password</label>
-                                    </div>
-                                </div>
 
-                            </div>
-                            <div class="tp-login-suggetions d-sm-flex align-items-center justify-content-between mb-20">
-                                <div class="tp-login-remeber">
-                                    <input id="remeber" type="checkbox">
-                                    <label for="remeber">I accept the terms of the Service & <a href="#">Privacy Policy</a>.</label>
+                                </div>
+                                <div class="tp-login-suggetions d-sm-flex align-items-center justify-content-between mb-20">
+                                    <div class="tp-login-remeber">
+                                        <input id="remeber" type="checkbox">
+                                        <label for="remeber">I accept the terms of the Service & <a href="#">Privacy Policy</a>.</label>
+                                    </div>
+                                </div>
+                                <div class="tp-login-bottom">
+                                    <button type="submit" class="tp-login-btn w-100">Sign Up</button>
                                 </div>
                             </div>
-                            <div class="tp-login-bottom">
-                                <button type="submit" class="tp-login-btn w-100">Sign Up</button>
-                            </div>
-                        </div>
                         </form>
                     </div>
                 </div>
@@ -143,3 +143,4 @@
 
 <!-- Mirrored from weblearnbd.net/tphtml/shofy-prv/shofy/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Jul 2023 09:25:28 GMT -->
 </html>
+
