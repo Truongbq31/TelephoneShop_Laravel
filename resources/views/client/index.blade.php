@@ -230,7 +230,7 @@
                                         <div class="col-xl-3 col-lg-3 col-sm-6">
                                             <div class="tp-product-item p-relative transition-3 mb-25">
                                                 <div class="tp-product-thumb p-relative fix m-img">
-                                                    <a href="product-details.html">
+                                                    <a href="{{route('route_client_productsDetail', ['id'=>$prd->id])}}">
                                                         <img src="{{''.\Illuminate\Support\Facades\Storage::url($prd->image)}}" alt="product-electronic">
                                                     </a>
 

@@ -8,6 +8,7 @@
     <title>Shofy - Multipurpose eCommerce HTML Template</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- Place favicon.ico in the root directory -->
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('client/assets/img/logo/favicon.png')}}">
@@ -388,7 +389,7 @@
                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M11.239 18.8538C13.4096 17.5179 15.4289 15.9456 17.2607 14.1652C18.5486 12.8829 19.529 11.3198 20.1269 9.59539C21.2029 6.25031 19.9461 2.42083 16.4289 1.28752C14.5804 0.692435 12.5616 1.03255 11.0039 2.20148C9.44567 1.03398 7.42754 0.693978 5.57894 1.28752C2.06175 2.42083 0.795919 6.25031 1.87187 9.59539C2.46978 11.3198 3.45021 12.8829 4.73806 14.1652C6.56988 15.9456 8.58917 17.5179 10.7598 18.8538L10.9949 19L11.239 18.8538Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                             <path d="M7.26062 5.05302C6.19531 5.39332 5.43839 6.34973 5.3438 7.47501" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
-                                        <span class="tp-header-action-badge">4</span>
+                                        <span class="tp-header-action-badge">0</span>
                                     </a>
                                 </div>
                                 <div class="tp-header-action-item">
@@ -636,20 +637,20 @@
                                             </ul>
                                         </li>
 
-                                        <li><a href="coupon.html">Coupons</a></li>
+                                        <li><a href="#">Coupons</a></li>
 
-                                        <li class="has-dropdown">
-                                            <a href="blog.html">Blog</a>
-                                            <ul class="tp-submenu">
-                                                <li><a href="blog.html">Blog Standard</a></li>
-                                                <li><a href="blog-grid.html">Blog Grid</a></li>
-                                                <li><a href="blog-list.html">Blog List</a></li>
-                                                <li><a href="blog-details-2.html">Blog Details Full Width</a></li>
-                                                <li><a href="blog-details.html">Blog Details</a></li>
-                                            </ul>
+                                        <li>
+                                            <a href="#">Blog</a>
+{{--                                            <ul class="tp-submenu">--}}
+{{--                                                <li><a href="blog.html">Blog Standard</a></li>--}}
+{{--                                                <li><a href="blog-grid.html">Blog Grid</a></li>--}}
+{{--                                                <li><a href="blog-list.html">Blog List</a></li>--}}
+{{--                                                <li><a href="blog-details-2.html">Blog Details Full Width</a></li>--}}
+{{--                                                <li><a href="blog-details.html">Blog Details</a></li>--}}
+{{--                                            </ul>--}}
                                         </li>
 
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="#">Contact</a></li>
 
                                     </ul>
                                 </nav>
@@ -709,20 +710,20 @@
                                     </ul>
                                 </li>
 
-                                <li><a href="coupon.html">Coupons</a></li>
+                                <li><a href="#">Coupons</a></li>
 
-                                <li class="has-dropdown">
-                                    <a href="blog.html">Blog</a>
-                                    <ul class="tp-submenu">
-                                        <li><a href="blog.html">Blog Standard</a></li>
-                                        <li><a href="blog-grid.html">Blog Grid</a></li>
-                                        <li><a href="blog-list.html">Blog List</a></li>
-                                        <li><a href="blog-details-2.html">Blog Details Full Width</a></li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                    </ul>
+                                <li>
+                                    <a href="#">Blog</a>
+{{--                                    <ul class="tp-submenu">--}}
+{{--                                        <li><a href="blog.html">Blog Standard</a></li>--}}
+{{--                                        <li><a href="blog-grid.html">Blog Grid</a></li>--}}
+{{--                                        <li><a href="blog-list.html">Blog List</a></li>--}}
+{{--                                        <li><a href="blog-details-2.html">Blog Details Full Width</a></li>--}}
+{{--                                        <li><a href="blog-details.html">Blog Details</a></li>--}}
+{{--                                    </ul>--}}
                                 </li>
 
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="#">Contact</a></li>
 
                             </ul>
                         </nav>
@@ -746,7 +747,7 @@
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11.239 18.8538C13.4096 17.5179 15.4289 15.9456 17.2607 14.1652C18.5486 12.8829 19.529 11.3198 20.1269 9.59539C21.2029 6.25031 19.9461 2.42083 16.4289 1.28752C14.5804 0.692435 12.5616 1.03255 11.0039 2.20148C9.44567 1.03398 7.42754 0.693978 5.57894 1.28752C2.06175 2.42083 0.795919 6.25031 1.87187 9.59539C2.46978 11.3198 3.45021 12.8829 4.73806 14.1652C6.56988 15.9456 8.58917 17.5179 10.7598 18.8538L10.9949 19L11.239 18.8538Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     <path d="M7.26062 5.05302C6.19531 5.39332 5.43839 6.34973 5.3438 7.47501" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
-                                <span class="tp-header-action-badge">4</span>
+                                <span class="tp-header-action-badge">0</span>
                             </a>
                         </div>
                         <div class="tp-header-action-item">
@@ -757,7 +758,7 @@
                                     <path d="M7.70365 10.1018H7.74942" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     <path d="M13.5343 10.1018H13.5801" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
-                                <span class="tp-header-action-badge">13</span>
+                                <span class="tp-header-action-badge">{{Cart::count()}}</span>
                             </button>
                         </div>
                         <div class="tp-header-action-item d-lg-none">
@@ -930,6 +931,8 @@
 <script src="https://cdn.jsdelivr.net/npm/boosted@5.2.3/dist/js/boosted.bundle.min.js" integrity="sha384-MANW37RG4MpFWPMCcNZBnvSobOkBpIGlbBkEzTtD4FbbOzJXbW8TddND1ak2lfsB" crossorigin="anonymous"></script>
 
 </body>
+
+@yield('script')
 
 <!-- Mirrored from weblearnbd.net/tphtml/shofy-prv/shofy/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Jul 2023 09:23:11 GMT -->
 </html>

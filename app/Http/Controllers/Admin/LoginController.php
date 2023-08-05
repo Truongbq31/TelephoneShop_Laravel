@@ -38,7 +38,8 @@ class LoginController extends Controller
                 $user = User::create([
                     'name'=>$request->name,
                     'email'=>$request->email,
-                    'password'=>Hash::make($request->password)
+                    'password'=>Hash::make($request->password),
+                    'role'=>1
                 ]);
             }else{
                 Session::flash('error', 'Password does not match!');

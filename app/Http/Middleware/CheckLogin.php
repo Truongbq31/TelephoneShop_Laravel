@@ -24,7 +24,7 @@ class CheckLogin
         }
         if (Auth::user()->status == 0){
             Session::flash('error', "Account is disabled. Contact admin for support!");
-            return redirect()->route('route_admin_login');
+            return redirect()->route('route_client_login');
         }
         return $next($request);
     }

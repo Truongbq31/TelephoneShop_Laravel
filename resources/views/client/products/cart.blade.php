@@ -22,8 +22,9 @@
     <section class="tp-cart-area pb-120">
         <div class="container">
             <div class="row">
-                <div class="col-xl-9 col-lg-8">
+                <div class="col-xl-6 col-lg-6">
                     <div class="tp-cart-list mb-25 mr-30">
+                        <h3 class="tp-checkout-bill-title">Product Detail</h3>
                         <table class="table">
                             <thead>
                             <tr>
@@ -86,45 +87,79 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="tp-cart-bottom">
-                        <div class="row align-items-end">
-                            <div class="col-xl-6 col-md-8">
-                                <div class="tp-cart-coupon">
+                </div>
+
+                <form method="POST" action="{{route('route_checkout')}}" class="col-xl-6 col-lg-6 col-md-6">
+                    <div>
+                        @csrf
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="tp-checkout-bill-area">
+                                <h3 class="tp-checkout-bill-title">Billing Details</h3>
+
+                                <div class="tp-checkout-bill-form">
                                     <form action="#">
-                                        <div class="tp-cart-coupon-input-box">
-                                            <label>Coupon Code:</label>
-                                            <div class="tp-cart-coupon-input d-flex align-items-center">
-                                                <input type="text" placeholder="Enter Coupon Code">
-                                                <button type="submit">Apply</button>
+                                        <div class="tp-checkout-bill-inner">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="tp-checkout-input">
+                                                        <label>Full Name <span>*</span></label>
+                                                        <input name="name" type="text" placeholder="First Name" value="@php echo \Illuminate\Support\Facades\Auth::user() == true ? \Illuminate\Support\Facades\Auth::user()->name : '' @endphp">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <div class="tp-checkout-input">
+                                                        <label>Email address <span>*</span></label>
+                                                        <input name="email" type="email" placeholder="" value="@php echo \Illuminate\Support\Facades\Auth::user() == true ? \Illuminate\Support\Facades\Auth::user()->email : '' @endphp">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="tp-checkout-input">
+                                                        <label>Street address</label>
+                                                        <input name="street" type="text" placeholder="House number and street name">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="tp-checkout-input">
+                                                        <label>Phone <span>*</span></label>
+                                                        <input name="phone_number" type="text" placeholder="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="tp-checkout-input">
+                                                        <label>Order notes (optional)</label>
+                                                        <textarea name="note" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
-                            <div class="col-xl-6 col-md-4">
-                                <div class="tp-cart-update text-md-end">
-                                    <button type="button" class="tp-cart-update-btn">Update Cart</button>
-                                </div>
+                        </div>
+                        <div class="tp-cart-checkout-wrapper col-xl-12 col-lg-12">
+                            <div class="tp-cart-checkout-top d-flex align-items-center justify-content-between">
+                                <span class="tp-cart-checkout-top-title">Subtotal</span>
+                                <span class="tp-cart-checkout-top-price">{{$subtotal}}</span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6">
-                    <div class="tp-cart-checkout-wrapper">
-                        <div class="tp-cart-checkout-top d-flex align-items-center justify-content-between">
-                            <span class="tp-cart-checkout-top-title">Subtotal</span>
-                            <span class="tp-cart-checkout-top-price">{{$subtotal}}</span>
-                        </div>
 
-                        <div class="tp-cart-checkout-total d-flex align-items-center justify-content-between">
-                            <span>Total</span>
-                            <span>{{$total}}</span>
-                        </div>
-                        <div class="tp-cart-checkout-proceed">
-                            <a href="checkout.html" class="tp-cart-checkout-btn w-100">Proceed to Checkout</a>
+                            <div class="tp-cart-checkout-total d-flex align-items-center justify-content-between">
+                                <span>Total</span>
+                                <span>{{$total}}</span>
+                            </div>
+                            @if(\Illuminate\Support\Facades\Auth::user())
+                                <div class="tp-cart-checkout-proceed">
+                                    <input type="hidden" name="subtotal" value="{{$subtotal}}">
+                                    <button type="submit" name="redirect" class="tp-cart-checkout-btn w-100">Proceed to Checkout</button>
+                                </div>
+                            @else
+                                <div class="tp-cart-checkout-proceed">
+                                    <button onclick="window.location.href='{{route('route_client_login')}}'" class="tp-cart-checkout-btn w-100">Sign in to pay for your order</button>
+                                </div>
+                            @endif
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </section>

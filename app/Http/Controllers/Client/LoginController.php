@@ -15,7 +15,11 @@ class LoginController extends Controller
     public function login(AllRequest $request){
         if ($request->isMethod('POST')){
             if (Auth::attempt(['email'=>$request->email, 'password'=>$request->password])){
-                return redirect()->route('route_client_index');
+                if (Auth::user()->status == 1){
+                    return redirect()->route('route_client_index');
+                }else{
+                    echo "<script>alert('Account is disabled. Contact admin for support!')</script>";
+                }
             }else{
                 echo "<script>alert('Incorrect account or password!')</script>";
 //                Session::flash('error', 'Incorrect account or password!');

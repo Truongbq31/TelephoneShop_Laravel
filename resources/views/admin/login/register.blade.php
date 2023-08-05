@@ -59,9 +59,9 @@
                     <div class="tp-login-wrapper">
                         <div class="tp-login-top text-center mb-30">
                             <h3 class="tp-login-title">Sign Up.</h3>
-                            <p>Already have an account?  <span><a href="{{route('route_client_login')}}">Sign In</a></span></p>
+                            <p>Already have an account?  <span><a href="{{route('route_admin_login')}}">Sign In</a></span></p>
                         </div>
-                        <form method="POST" action="{{route('route_client_register')}}">
+                        <form method="POST" action="{{route('route_admin_register')}}">
                             @csrf
                             <div class="tp-login-option">
                             <div class="tp-login-input-wrapper">

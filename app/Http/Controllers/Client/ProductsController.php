@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Categories;
+use App\Models\Admin\Comments;
 use App\Models\Admin\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -23,11 +24,16 @@ class ProductsController extends Controller
             ->select('products.*', "categories.name as cate_name")
             ->whereNull('products.deleted_at')
             ->get();
+//        dd($products);
 
         return view('client.products.products', compact('products', 'categories'));
     }
 
     public function productsDetail($id){
+        $comments = DB::table('comments')
+            ->join('users', 'users.id', '=', 'comments.users_id')
+            ->get();
+//        dd($comments);
         $categories = $this->categories;
         $imgsPrd = DB::table('img_products')->where('id_products', '=', $id)->get();
 //        dd($imgsPrd);
@@ -46,7 +52,7 @@ class ProductsController extends Controller
 
 //        dd($prdByCate, $productsDetail);
 
-        return view('client.products.productsDetail', compact('productsDetail', 'categories', 'imgsPrd', 'prdByCate'));
+        return view('client.products.productsDetail', compact('productsDetail', 'comments', 'categories', 'imgsPrd', 'prdByCate'));
     }
     public function productsByCategoriesName($name){
         $categories = $this->categories;
@@ -60,5 +66,5 @@ class ProductsController extends Controller
 
         return view('client.products.productsByCategoriesName', compact('categories', 'productsByIdCategory'));
     }
-    //
+
 }
