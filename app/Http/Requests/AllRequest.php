@@ -83,6 +83,12 @@ class AllRequest extends FormRequest
                             'confirm_new_password'=>'required|min:6'
                         ];
                         break;
+                    case "changePassword":
+                        $rules = [
+                            'new_pass'=>'required|min:6',
+                            'con_new_pass'=>'required|min:6'
+                        ];
+                        break;
                 endswitch;
             break;
         endswitch;
