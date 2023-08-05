@@ -40,8 +40,6 @@ class CartController extends Controller
         return back();
     }
     public function update(AllRequest $request){
-        if($request->ajax()){
-            Cart::update($request->rowId, $request->qty);
-        }
+        Cart::update($request->rowId, $request->qty);
     }
 }

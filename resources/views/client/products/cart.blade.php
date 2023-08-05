@@ -61,14 +61,15 @@
 {{--                                          </svg>--}}
 {{--                                       </span>--}}
 {{--                                    </div>--}}
-                                    <div class="input-group quantity-selector quantity-selector-sm">
+                                    <div class="input-group quantity-selector">
 
-                                        <button type="button" class="btn btn-icon btn-secondary btn-sm" aria-describedby="inputQuantitySelectorSm" data-bs-step="down"></button>
+                                        <button  type="button"  class="tp-cart-minus" aria-describedby="inputQuantitySelectorSm" data-bs-step="down"></button>
 {{--                                            <span class="visually-hidden">Step down</span>--}}
-                                        <input type="number" id="inputQuantitySelectorSm" class="form-control" aria-live="polite" data-bs-step="counter" name="quantity" title="quantity" value="{{$cart->qty}}" data-rowId="{{$cart->rowId}}" min="0" max="10" step="1" data-bs-round="0" aria-label="Quantity selector">
-                                        <button type="button" class="btn btn-icon btn-secondary btn-sm" aria-describedby="inputQuantitySelectorSm" data-bs-step="up"> </button>
+                                        <input type="text" id="inputQuantitySelectorSm" class="tp-cart-input" aria-live="polite" data-bs-step="counter" name="quantity" value="{{$cart->qty}}" data-rowId="{{$cart->rowId}}"  min="0" max="10" step="1" data-bs-round="0" aria-label="Quantity selector">
+                                        <button type="button" class="tp-cart-plus" aria-describedby="inputQuantitySelectorSm" data-bs-step="up"></button>
 {{--                                            <span class="visually-hidden">Step up</span>--}}
                                     </div>
+{{--                                    </div>--}}
                                 </td>
                                 <td class="tp-cart-price"><span>{{number_format($cart->price * $cart->qty)}}</span></td>
                                 <!-- action -->
@@ -128,4 +129,32 @@
         </div>
     </section>
     <!-- cart area end -->
+</main>
+    <script>
+        $(document).ready(function () {
+            $('.tp-cart-input').change(function () {
+                let qty = $(this).val();
+                if (qty < 1) {
+                    alert('Số lượng không được nhỏ hơn 1');
+                    $(this).val(1)
+                    return;
+                }
+                const rowId = $(this).attr('data-rowId')
+                $.ajax({
+                    type: "GET",
+                    url: '{{route('route_cart_update')}}',
+                    data: {rowId: rowId, qty: qty},
+                    success: function (data) {
+                        // alert('update successful');
+                        // console.log(data);
+                        location.reload();
+                    },
+                    error: function (error) {
+                        alert('update failed');
+                        console.log(error);
+                    }
+                })
+            })
+        });
+    </script>
 @endsection

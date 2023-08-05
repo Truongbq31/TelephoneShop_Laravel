@@ -1663,6 +1663,7 @@
 	};
 
 	////////////////////////////////////////////////////
+
 	// 16. Wow Js
 	new WOW().init();
 
@@ -1674,7 +1675,6 @@
 			$input.val(count);
 			$input.change();
 			return false;
-
 		});
 
 		$('.tp-cart-plus').on('click', function () {
@@ -1682,7 +1682,6 @@
 			$input.val(parseInt($input.val()) + 1);
 			$input.change();
 			return false;
-
 		});
 
 		$("#slider-range").slider({
