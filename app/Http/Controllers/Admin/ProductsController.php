@@ -84,8 +84,6 @@ class ProductsController extends Controller
                 if ($resultDL){
                     $params['image'] = uploadFile('images', $request->file('image'));
                 }
-            }else{
-                $params['image'] = $product->image;
             }
 
             $result = Products::where('id', $id)
