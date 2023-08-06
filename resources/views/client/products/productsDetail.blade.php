@@ -90,27 +90,30 @@
                                 <!-- actions -->
                                 <div class="tp-product-details-action-wrapper">
                                     <h3 class="tp-product-details-action-title">Quantity</h3>
+
                                     <div class="tp-product-details-action-item-wrapper d-flex align-items-center">
-                                        <div class="tp-product-details-quantity">
-                                            <div class="tp-product-quantity mb-15 mr-15">
-                                       <span class="tp-cart-minus">
-                                          <svg width="11" height="2" viewBox="0 0 11 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                             <path d="M1 1H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                          </svg>
-                                       </span>
-                                                <input class="tp-cart-input" type="text" value="1">
-                                                <span class="tp-cart-plus">
-                                          <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                             <path d="M1 6H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                             <path d="M5.5 10.5V1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                          </svg>
-                                       </span>
-                                            </div>
+                                        <div class="input-group quantity-selector">
+
+                                            <button type="button" class="tp-cart-minus"
+                                                    aria-describedby="inputQuantitySelectorSm"
+                                                    data-bs-step="down"></button>
+                                            {{--                                            <span class="visually-hidden">Step down</span>--}}
+                                            <input type="text"  class="tp-cart-input"
+                                                   aria-live="polite" data-bs-step="counter" name="qty"
+                                                   value="1" min="0"
+                                                   max="10" step="1" data-bs-round="0"
+                                                   aria-label="Quantity selector">
+                                            <button type="button" class="tp-cart-plus"
+                                                    aria-describedby="inputQuantitySelectorSm"
+                                                    data-bs-step="up"></button>
+                                            {{--                                            <span class="visually-hidden">Step up</span>--}}
                                         </div>
+
                                         <div class="tp-product-details-add-to-cart mb-15 w-100">
                                             <a type="button" class="tp-product-details-add-to-cart-btn w-100" href="{{route('route_cart_add', ['id'=>$prd->id])}}">Add To Cart</a>
                                         </div>
                                     </div>
+
                                     <button class="tp-product-details-buy-now-btn w-100">Buy Now</button>
                                 </div>
                                 <div class="tp-product-details-action-sm">
@@ -400,7 +403,6 @@
                 </div>
             </div>
         </section>
-
         @endforeach
         <!-- related product area end -->
 
