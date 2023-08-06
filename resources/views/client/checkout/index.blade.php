@@ -15,8 +15,9 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="cart-wrapper">
-                                <table class="table">
+                                <table class="table table-hover">
                                     <tr>
+                                        <th>Order Code</th>
                                         <th>Image</th>
                                         <th>Product Name</th>
                                         <th>Total Price</th>
@@ -27,9 +28,10 @@
                                     <tbody>
                                     @foreach($orderDetail as $value)
                                         <tr>
+                                            <td>#{{$value->order_code}}</td>
                                             <td class="product-thumbnail">
                                                 <a class="img">
-                                                    <img src="{{''.\Illuminate\Support\Facades\Storage::url($value->image)}}" alt="">
+                                                    <img width="100px" src="{{''.\Illuminate\Support\Facades\Storage::url($value->image)}}" alt="">
                                                 </a>
                                             </td>
                                             <td class="product-name"><a>{{$value->product_name}}</a></td>

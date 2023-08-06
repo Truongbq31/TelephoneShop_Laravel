@@ -41,7 +41,7 @@ class PaymentController extends Controller
         $startTime = date("YmdHis");
         $expire = date('YmdHis', strtotime('+15 minutes', strtotime($startTime)));
 
-        $vnp_TxnRef = time(); //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
+        $vnp_TxnRef = rand(1000,9999); //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
         $vnp_OrderInfo = "Thanh-toan-don-hang"; //mô tả đơn hàng
         $vnp_OrderType = "billpayment";
         $vnp_Amount = $request->total_price * 23000;
@@ -110,6 +110,7 @@ class PaymentController extends Controller
     }
     public function handlePayment(Request $request){
         if ($_GET['vnp_ResponseCode'] == 00) {
+            $order_code = $_GET['vnp_TxnRef'];
             $data = [
                 'products_id' => intval($_GET['id_prd']),
                 'user_id' => Auth::user()->id,
@@ -117,17 +118,19 @@ class PaymentController extends Controller
                 'address'=>$_GET['address'],
                 'phone_number'=>$_GET['phone'],
                 'quantity'=>intval($_GET['qty']),
-                'note'=>$_GET['note']
+                'note'=>$_GET['note'],
+                'order_code' => $order_code
             ];
 //            dd($data);
             $resutl = Order_detail::create($data);
             if ($resutl){
                 $orderDetail = DB::table('order_detail')
-                ->join('products','products.id','=','order_detail.products_id')
-                ->join('users','users.id','=','order_detail.user_id')
-                ->select('products.name as product_name','users.name as user_name','products.image','order_detail.*')
-                ->where('order_detail.user_id','=',Auth::user()->id)
-                ->get();
+                    ->join('products','products.id','=','order_detail.products_id')
+                    ->join('users','users.id','=','order_detail.user_id')
+                    ->select('products.name as product_name','users.name as user_name','products.image','order_detail.*')
+                    ->where('order_detail.user_id','=',Auth::user()->id)
+                    ->whereNull('order_detail.deleted_at')
+                    ->get();
                 Cart::destroy();
                 return view('client.checkout.index',compact('orderDetail'));
             }

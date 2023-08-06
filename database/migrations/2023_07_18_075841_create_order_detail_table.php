@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('phone_number');
             $table->integer('quantity');
             $table->string('note')->nullable();
+            $table->integer('order_code');
             $table->integer('status')->default(1);
             $table->timestamps();
             $table->softDeletes();
