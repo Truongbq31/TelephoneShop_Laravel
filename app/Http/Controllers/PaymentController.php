@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin\Order_detail;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class PaymentController extends Controller
 {
@@ -20,10 +24,16 @@ class PaymentController extends Controller
          * and open the template in the editor.
          */
 
+//        dd($request);
         $vnp_TmnCode = "DL0EA7AJ"; //Website ID in VNPAY System
         $vnp_HashSecret = "GOGAQDDKQGSHOENQIKCHZBMXCIZBQVXJ"; //Secret key
         $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-        $vnp_Returnurl = route('client.handlePayment') . "?msg=success";
+        $vnp_Returnurl = route('client.handlePayment')
+            ."?id_prd=$request->id_prd"
+            ."&qty=$request->qty"
+            ."&address=$request->address"
+            ."&phone=$request->phone_number"
+            ."&note=$request->note";
 //        $vnp_apiUrl = " https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
 //Config input format
 //Expire
@@ -33,7 +43,7 @@ class PaymentController extends Controller
         $vnp_TxnRef = time(); //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
         $vnp_OrderInfo = "Thanh-toan-don-hang"; //mô tả đơn hàng
         $vnp_OrderType = "billpayment";
-        $vnp_Amount = $request->total_price * 10000;
+        $vnp_Amount = $request->total_price * 23000;
 //        $vnp_Amount = 1000000;
         $vnp_Locale = "vn";
         $vnp_BankCode = "NCB";
@@ -98,10 +108,28 @@ class PaymentController extends Controller
         }
     }
     public function handlePayment(Request $request){
-        if ($request->msg == 'success') {
-            dd($request);
-            dd("ĐÃ THANH TOÁN");
+        if ($_GET['vnp_ResponseCode'] == 00) {
+            $data = [
+                'products_id' => intval($_GET['id_prd']),
+                'user_id' => Auth::user()->id,
+                'total_price'=> intval($_GET['vnp_Amount']),
+                'address'=>$_GET['address'],
+                'phone_number'=>$_GET['phone'],
+                'quantity'=>intval($_GET['qty']),
+                'note'=>$_GET['note']
+            ];
+//            dd($data);
+            $resutl = Order_detail::create($data);
+            if ($resutl){
+                Cart::destroy();
+                return redirect()->route('route_client_index');
+            }
             //Xử lý khi thanh toán thành công
+        }else{
+            dd($_GET);
+//            dd(Auth::user()->id);
+            Session::flash('error', 'Payment failed');
+            return redirect()->route('route_cart_index');
         }
     }
 

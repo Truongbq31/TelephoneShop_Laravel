@@ -4,6 +4,9 @@
         <!-- breadcrumb area start -->
         <section class="breadcrumb__area include-bg pt-95 pb-50">
             <div class="container">
+
+                @include('templates.error')
+
                 <div class="row">
                     <div class="col-xxl-12">
                         <div class="breadcrumb__content p-relative z-index-1">
@@ -119,7 +122,7 @@
                                                     <div class="col-md-12">
                                                         <div class="tp-checkout-input">
                                                             <label>Full Name <span>*</span></label>
-                                                            <input name="name" type="text" placeholder="First Name"
+                                                            <input required name="name" type="text" placeholder="First Name"
                                                                    value="@php echo \Illuminate\Support\Facades\Auth::user() == true ? \Illuminate\Support\Facades\Auth::user()->name : '' @endphp">
                                                         </div>
                                                     </div>
@@ -127,21 +130,21 @@
                                                     <div class="col-md-12">
                                                         <div class="tp-checkout-input">
                                                             <label>Email address <span>*</span></label>
-                                                            <input name="email" type="email" placeholder=""
+                                                            <input required name="email" type="email" placeholder=""
                                                                    value="@php echo \Illuminate\Support\Facades\Auth::user() == true ? \Illuminate\Support\Facades\Auth::user()->email : '' @endphp">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12">
                                                         <div class="tp-checkout-input">
                                                             <label>Street address</label>
-                                                            <input name="street" type="text"
+                                                            <input required name="address" type="text"
                                                                    placeholder="House number and street name">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12">
                                                         <div class="tp-checkout-input">
                                                             <label>Phone <span>*</span></label>
-                                                            <input name="phone_number" type="text" placeholder="">
+                                                            <input required name="phone_number" type="text" placeholder="">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12">
@@ -169,7 +172,12 @@
                                 </div>
                                 @if(\Illuminate\Support\Facades\Auth::user())
                                     <div class="tp-cart-checkout-proceed">
-{{--                                        <input type="" name="total_price" value="{{$total}}">--}}
+                                        <input type="hidden" name="total_price" value="{{$total}}">
+                                        @foreach($carts as $cart)
+                                            <input type="" value="{{$cart->id}}" name="id_prd">
+                                            <input type="" value="{{$cart->qty}}" name="qty">
+                                        @endforeach
+
                                         <button type="submit" name="redirect" class="tp-cart-checkout-btn w-100">Proceed
                                             to Checkout
                                         </button>

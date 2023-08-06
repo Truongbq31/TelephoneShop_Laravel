@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('phone_number');
             $table->integer('quantity');
-            $table->integer('note');
+            $table->string('note')->nullable();
             $table->integer('status')->default(1);
             $table->timestamps();
         });
