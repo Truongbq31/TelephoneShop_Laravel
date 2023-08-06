@@ -25,12 +25,12 @@
                     <div class="col-xl-6 col-lg-6">
                         <div class="tp-cart-list mb-25 mr-30">
                             <h3 class="tp-checkout-bill-title">Product Detail</h3>
-                            <table class="table">
+                            <table class="table table-hover">
                                 <thead>
                                 <tr>
                                     {{--                                <th colspan="2" class="tp-cart-header-product">Product</th>--}}
                                     <th class="tp-cart-header-price">Image</th>
-                                    <th class="tp-cart-header-price">Product Name</th>
+                                    <th class="tp-cart-header-price">Name</th>
                                     <th class="tp-cart-header-quantity">Price</th>
                                     <th class="tp-cart-header-quantity">Quantity</th>
                                     <th class="tp-cart-header-quantity">Total</th>
@@ -47,7 +47,7 @@
                                         <!-- title -->
                                         <td class="tp-cart-title">{{$cart->name}}</td>
                                         <!-- price -->
-                                        <td class="tp-cart-price"><span>{{number_format($cart->price)}}</span></td>
+                                        <td class="tp-cart-price"><span>{{number_format($cart->price)}} đ</span></td>
                                         <!-- quantity -->
                                         <td class="tp-cart-quantity">
                                             {{--                                    <div class="tp-product-quantity mt-10 mb-10">--}}
@@ -83,7 +83,7 @@
                                             {{--                                    </div>--}}
                                         </td>
                                         <td class="tp-cart-price">
-                                            <span>{{number_format($cart->price * $cart->qty)}}</span></td>
+                                            <span>{{number_format($cart->price * $cart->qty)}} đ</span></td>
                                         <!-- action -->
                                         <td class="tp-cart-action">
                                             <button class="tp-cart-action-btn">
@@ -105,7 +105,7 @@
                         </div>
                     </div>
 
-                    <form method="POST" action="{{route('route_checkout')}}" class="col-xl-6 col-lg-6 col-md-6">
+                    <form method="POST" action="{{route('payment')}}" class="col-xl-6 col-lg-6 col-md-6">
                         <div>
                             @csrf
                             <div class="col-xl-12 col-lg-12">
@@ -169,7 +169,7 @@
                                 </div>
                                 @if(\Illuminate\Support\Facades\Auth::user())
                                     <div class="tp-cart-checkout-proceed">
-                                        <input type="hidden" name="subtotal" value="{{$subtotal}}">
+{{--                                        <input type="" name="total_price" value="{{$total}}">--}}
                                         <button type="submit" name="redirect" class="tp-cart-checkout-btn w-100">Proceed
                                             to Checkout
                                         </button>
@@ -181,11 +181,11 @@
                                         </button>
                                     </div>
                                 @endif
-                                <form action="{{route('payment')}}" method="post">
-                                    @csrf
-                                    <input hidden="" name="total_price" value="{{$subtotal}}">
-                                    <button>Thanh toán</button>
-                                </form>
+{{--                                <form action="{{route('payment')}}" method="post">--}}
+{{--                                    @csrf--}}
+{{--                                    <input hidden="" name="total_price" value="{{$subtotal}}">--}}
+{{--                                    <button>Thanh toán</button>--}}
+{{--                                </form>--}}
 
                             </div>
                         </div>

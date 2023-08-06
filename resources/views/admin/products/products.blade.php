@@ -63,7 +63,7 @@
 
                                             <td class="">{{$prd->description}}</td>
 
-                                            <td class="td-price">${{$prd->price}}</td>
+                                            <td class="td-price">{{number_format($prd->price)}} đ</td>
 
                                             <td class="status-close">
                                                 <span>{{$prd->status == 1 ? "Stock" : "Out of stock"}}</span>

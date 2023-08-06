@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 class PaymentController extends Controller
 {
     public function payment(Request $request){
-//        dd(123);
         error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         /**
@@ -34,7 +33,7 @@ class PaymentController extends Controller
         $vnp_TxnRef = time(); //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
         $vnp_OrderInfo = "Thanh-toan-don-hang"; //mô tả đơn hàng
         $vnp_OrderType = "billpayment";
-        $vnp_Amount = $request->total_price * 100000;
+        $vnp_Amount = $request->total_price * 10000;
 //        $vnp_Amount = 1000000;
         $vnp_Locale = "vn";
         $vnp_BankCode = "NCB";
@@ -100,6 +99,7 @@ class PaymentController extends Controller
     }
     public function handlePayment(Request $request){
         if ($request->msg == 'success') {
+            dd($request);
             dd("ĐÃ THANH TOÁN");
             //Xử lý khi thanh toán thành công
         }
