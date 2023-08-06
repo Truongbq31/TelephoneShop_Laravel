@@ -19,7 +19,6 @@
                                     <tr>
                                         <th>Image</th>
                                         <th>Product Name</th>
-                                        <th>Quantity</th>
                                         <th>Total Price</th>
                                         <th>Delivery Address</th>
                                         <th>User Name</th>
@@ -34,7 +33,6 @@
                                                 </a>
                                             </td>
                                             <td class="product-name"><a>{{$value->product_name}}</a></td>
-                                            <td>{{$value->quantity}}</td>
                                             <td>{{number_format($value->total_price)}}đ</td>
                                             <td>{{$value->address}}</td>
                                             <td>{{$value->user_name}}</td>
