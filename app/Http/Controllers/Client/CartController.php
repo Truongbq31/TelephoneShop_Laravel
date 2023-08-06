@@ -30,6 +30,7 @@ class CartController extends Controller
     }
     public function index(){
         $categories = Categories::all();
+//        $productsController = Products::all();
         $carts = Cart::content();
         $total = Cart::total();
         $subtotal = Cart::subtotal();
@@ -40,6 +41,6 @@ class CartController extends Controller
         return back();
     }
     public function update(AllRequest $request){
-        Cart::update($request->rowId, $request->qty);
+        Cart::update($request->rowId,$request->qty);
     }
 }

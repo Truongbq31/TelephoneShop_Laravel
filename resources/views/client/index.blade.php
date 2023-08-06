@@ -1009,7 +1009,7 @@
                                             </div>
                                             <h3 class="tp-product-title">
                                                 <a href="product-details.html">
-                                                    {{$prdS->name}}
+                                                    {{$prd->name}}
                                                 </a>
                                             </h3>
                                             <div class="tp-product-rating d-flex align-items-center">

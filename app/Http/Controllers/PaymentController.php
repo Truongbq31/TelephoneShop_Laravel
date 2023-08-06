@@ -6,6 +6,7 @@ use App\Models\Admin\Order_detail;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class PaymentController extends Controller
@@ -121,8 +122,14 @@ class PaymentController extends Controller
 //            dd($data);
             $resutl = Order_detail::create($data);
             if ($resutl){
+                $orderDetail = DB::table('order_detail')
+                ->join('products','products.id','=','order_detail.products_id')
+                ->join('users','users.id','=','order_detail.user_id')
+                ->select('products.name as product_name','users.name as user_name','products.image','order_detail.*')
+                ->where('order_detail.user_id','=',Auth::user()->id)
+                ->get();
                 Cart::destroy();
-                return redirect()->route('route_client_index');
+                return view('client.checkout.index',compact('orderDetail'));
             }
             //Xử lý khi thanh toán thành công
         }else{
