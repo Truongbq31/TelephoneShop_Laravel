@@ -174,8 +174,8 @@
                                     <div class="tp-cart-checkout-proceed">
                                         <input type="hidden" name="total_price" value="{{$total}}">
                                         @foreach($carts as $cart)
-                                            <input type="" value="{{$cart->id}}" name="id_prd">
-                                            <input type="" value="{{$cart->qty}}" name="qty">
+                                            <input type="hidden" value="{{$cart->id}}" name="id_prd">
+                                            <input type="hidden" value="{{$cart->qty}}" name="qty">
                                         @endforeach
 
                                         <button type="submit" name="redirect" class="tp-cart-checkout-btn w-100">Proceed

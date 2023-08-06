@@ -126,7 +126,7 @@ class PaymentController extends Controller
             }
             //Xử lý khi thanh toán thành công
         }else{
-            dd($_GET);
+//            dd($_GET);
 //            dd(Auth::user()->id);
             Session::flash('error', 'Payment failed');
             return redirect()->route('route_cart_index');

@@ -33,6 +33,8 @@ class ProductsController extends Controller
         $comments = DB::table('comments')
             ->join('users', 'users.id', '=', 'comments.users_id')
             ->where('products_id','=',$id)
+            ->where('comments.status','=',1)
+            ->whereNull('deleted_at')
             ->get();
 //        dd($comments);
         $categories = $this->categories;

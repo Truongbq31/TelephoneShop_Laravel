@@ -263,35 +263,13 @@
                                 </a>
                                 <ul class="sidebar-submenu">
                                     <li>
-                                        <a href="order-list.html">Order List</a>
-                                    </li>
-                                    <li>
-                                        <a href="order-detail.html">Order Detail</a>
-                                    </li>
-                                    <li>
-                                        <a href="order-tracking.html">Order Tracking</a>
+                                        <a href="{{route('route_admin_order')}}">Order List</a>
                                     </li>
                                 </ul>
                             </li>
 
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav" href="javascript:void(0)">
-                                    <i class="fa-solid fa-ticket"></i>
-                                    <span>Coupons</span>
-                                </a>
-                                <ul class="sidebar-submenu">
-                                    <li>
-                                        <a href="coupon-list.html">Coupon List</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="create-coupon.html">Create Coupon</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav" href="product-review.html">
+                                <a class="sidebar-link sidebar-title link-nav" href="{{route('route_admin_review')}}">
                                     <i class="fa-solid fa-comment-dots"></i>
                                     <span>Product Review</span>
                                 </a>

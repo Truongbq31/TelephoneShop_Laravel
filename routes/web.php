@@ -68,6 +68,15 @@ Route::middleware(['auth', 'check.login'])->group(function () {
     Route::get('/telephone/admin/updateStatus/{id}', [UsersController::class, 'updateStatus'])->name('route_admin_updateStatus');
     Route::match(['GET', 'POST'], 'telephone/admin/editUsers/{id}', [UsersController::class, 'editUsers'])->name('route_admin_editUsers');
 
+    //Order
+    Route::get('telephone/admin/order',[\App\Http\Controllers\Admin\Order::class,'order_detail'])->name('route_admin_order');
+    Route::get('telephone/admin/order/delete/{id}',[\App\Http\Controllers\Admin\Order::class,'delete'])->name('route_admin_orderDelete');
+
+    //Review
+    Route::get('/telephone/admin/review',[\App\Http\Controllers\Admin\CommentController::class,'comment'])->name('route_admin_review');
+    Route::get('/telephone/admin/review/delete/{id}',[\App\Http\Controllers\Admin\CommentController::class,'delete'])->name('route_admin_delReview');
+    Route::get('/telephone/admin/review/update/{id}/{status}',[\App\Http\Controllers\Admin\CommentController::class,'updateStatus'])->name('route_admin_updateComment');
+
 
 //End admin
 });
