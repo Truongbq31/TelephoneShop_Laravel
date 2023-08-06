@@ -83,5 +83,7 @@ Route::prefix('cart')->group(function (){
 
 //End client
 
+//Comment
+Route::post('/telephone/comment', [\App\Http\Controllers\Client\CommentsController::class,'comment'])->name('route_client_comments');
 //Check out
 Route::post('/telephone/checkout', [\App\Http\Controllers\Client\CheckoutController::class, 'checkOut'])->name('route_checkout');

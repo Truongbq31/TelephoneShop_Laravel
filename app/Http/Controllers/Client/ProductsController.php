@@ -32,6 +32,7 @@ class ProductsController extends Controller
     public function productsDetail($id){
         $comments = DB::table('comments')
             ->join('users', 'users.id', '=', 'comments.users_id')
+            ->where('products_id','=',$id)
             ->get();
 //        dd($comments);
         $categories = $this->categories;

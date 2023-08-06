@@ -22,7 +22,21 @@ class IndexController extends Controller
 //        dd($products);
 //        dd($banners);
 //        dd($categories);
-        return view('client.index', compact('categories', 'banners', 'products'));
+        $productsApple = DB::table('products')
+            ->join("categories", "products.category_id",'=', 'categories.id')
+            ->select('products.*', "categories.name as cate_name")
+            ->where('categories.name','=','apple')
+            ->whereNull('products.deleted_at')
+            ->get();
+
+        $productsSamsung = DB::table('products')
+            ->join("categories", "products.category_id",'=', 'categories.id')
+            ->select('products.*', "categories.name as cate_name")
+            ->where('categories.name','=','samsung')
+            ->whereNull('products.deleted_at')
+            ->get();
+//        dd($productsApple);
+        return view('client.index', compact('categories', 'banners', 'products', 'productsApple', 'productsSamsung'));
     }
     //
 }

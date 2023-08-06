@@ -9,11 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class CommentsController extends Controller
 {
-    public function show_comment(){
-        $comments = Comments::all();
-        return view('client.comment.show_comment', compact('comments'));
-    }
-
     public function comment(Request $request){
         if ($request->isMethod('POST')){
             $comments = Comments::create([

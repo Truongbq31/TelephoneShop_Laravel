@@ -282,7 +282,7 @@
             </div>
             <div class="cartmini__checkout-btn">
                 <a href="{{route('route_cart_index')}}" class="tp-btn mb-10 w-100"> view cart</a>
-                <a href="checkout.html" class="tp-btn tp-btn-border w-100"> checkout</a>
+                <a href="{{route('route_cart_index')}}" class="tp-btn tp-btn-border w-100"> checkout</a>
             </div>
         </div>
     </div>
