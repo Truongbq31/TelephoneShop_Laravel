@@ -109,9 +109,11 @@ Route::prefix('cart')->group(function () {
     Route::get('/update', [CartController::class, 'update'])->name('route_cart_update');
 });
 
-//End client
+Route::get('/telephone/orderdetail',[\App\Http\Controllers\Client\OrderController::class,'order_detail'])->name('route_client_oderdetail');
 
 //Comment
 Route::post('/telephone/comment', [CommentsController::class, 'comment'])->name('route_client_comments');
 //Check out
 Route::post('/telephone/checkout', [CheckoutController::class, 'checkOut'])->name('route_checkout');
+
+//End client

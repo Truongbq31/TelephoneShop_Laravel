@@ -124,21 +124,13 @@ class PaymentController extends Controller
 //            dd($data);
             $resutl = Order_detail::create($data);
             if ($resutl){
-                $orderDetail = DB::table('order_detail')
-                    ->join('products','products.id','=','order_detail.products_id')
-                    ->join('users','users.id','=','order_detail.user_id')
-                    ->select('products.name as product_name','users.name as user_name','products.image','order_detail.*')
-                    ->where('order_detail.user_id','=',Auth::user()->id)
-                    ->whereNull('order_detail.deleted_at')
-                    ->get();
-                Cart::destroy();
-                return view('client.checkout.index',compact('orderDetail'));
+                return redirect()->route('route_client_oderdetail');
             }
             //Xử lý khi thanh toán thành công
         }else{
 //            dd($_GET);
 //            dd(Auth::user()->id);
-            Session::flash('error', 'Payment failed');
+//            Session::flash('error', 'Payment failed');
             return redirect()->route('route_cart_index');
         }
     }

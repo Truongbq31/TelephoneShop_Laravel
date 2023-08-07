@@ -89,25 +89,7 @@
 
                                 <!-- actions -->
                                 <div class="tp-product-details-action-wrapper">
-                                    <h3 class="tp-product-details-action-title">Quantity</h3>
-
                                     <div class="tp-product-details-action-item-wrapper d-flex align-items-center">
-                                        <div class="input-group quantity-selector">
-
-                                            <button type="button" class="tp-cart-minus"
-                                                    aria-describedby="inputQuantitySelectorSm"
-                                                    data-bs-step="down"></button>
-                                            {{--                                            <span class="visually-hidden">Step down</span>--}}
-                                            <input type="text"  class="tp-cart-input"
-                                                   aria-live="polite" data-bs-step="counter" name="qty"
-                                                   value="1" min="0"
-                                                   max="10" step="1" data-bs-round="0"
-                                                   aria-label="Quantity selector">
-                                            <button type="button" class="tp-cart-plus"
-                                                    aria-describedby="inputQuantitySelectorSm"
-                                                    data-bs-step="up"></button>
-                                            {{--                                            <span class="visually-hidden">Step up</span>--}}
-                                        </div>
 
                                         <div class="tp-product-details-add-to-cart mb-15 w-100">
                                             <a type="button" class="tp-product-details-add-to-cart-btn w-100" href="{{route('route_cart_add', ['id'=>$prd->id])}}">Add To Cart</a>
